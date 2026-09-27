@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# DuckDB
+*.duckdb
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment / secrets
+.env
+
+# Raw dataset
+data/raw/
+
+# dbt
+logs/
+target/

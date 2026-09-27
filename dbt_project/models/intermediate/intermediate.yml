@@ -1,0 +1,65 @@
+version: 2
+
+models:
+
+  - name: int_order_payments
+    description: >
+      Order-level payment aggregation. One row per order.
+
+    columns:
+      - name: order_id
+        description: "Identifier of the order."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: total_payment_value
+        description: "Total value of all payment records associated with the order."
+        data_tests:
+          - not_null
+
+  - name: int_order_reviews
+    description: >
+      Order-level review aggregation. One row per order.
+
+    columns:
+      - name: order_id
+        description: "Identifier of the order."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: average_review_score
+        description: "Average review score associated with the order."
+        data_tests:
+          - not_null
+
+  - name: int_customer_orders
+    description: >
+      Order-level customer model combining order, customer, item,
+      payment, and review information. One row per order.
+
+    columns:
+      - name: order_id
+        description: "Identifier of the order."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_unique_id
+        description: "Persistent customer identifier."
+        data_tests:
+          - not_null
+
+      - name: order_status
+        description: "Current status of the order."
+        data_tests:
+          - not_null
+
+      - name: order_purchase_timestamp
+        description: "Timestamp when the order was placed."
+        data_tests:
+          - not_null
+
+      - name: total_order_value
+        description: "Product value plus freight value for the order."

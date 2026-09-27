@@ -1,0 +1,32 @@
+version: 2
+
+models:
+
+  - name: stg_orders
+
+    description: >
+      Cleaned order-level staging model containing order
+      status and lifecycle timestamps.
+
+    columns:
+
+      - name: order_id
+        description: "Unique identifier for an order."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: "Identifier linking the order to a customer record."
+        data_tests:
+          - not_null
+
+      - name: order_status
+        description: "Current status of the order."
+        data_tests:
+          - not_null
+
+      - name: order_purchase_timestamp
+        description: "Timestamp when the order was placed."
+        data_tests:
+          - not_null

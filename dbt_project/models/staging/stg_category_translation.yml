@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_category_translation
+    description: >
+      Mapping between the original Portuguese product categories
+      and their English translations.
+    columns:
+      - name: product_category_name
+        description: "Original Portuguese product category."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: product_category_name_english
+        description: "English translation of the product category."
+        data_tests:
+          - not_null

@@ -1,0 +1,42 @@
+version: 2
+
+models:
+
+  - name: mart_customer_behavior
+    description: >
+      Customer-level behavioral mart used to analyze one-time versus
+      returning customers. One row per customer with at least one
+      order containing item-level purchase information.
+
+    columns:
+
+      - name: customer_unique_id
+        description: "Persistent customer identifier."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: order_count
+        description: "Number of purchase orders associated with the customer."
+        data_tests:
+          - not_null
+
+      - name: customer_type
+        description: "Customer classification based on purchase frequency."
+        data_tests:
+          - not_null
+
+      - name: first_purchase_timestamp
+        description: "Timestamp of the customer's first purchase."
+        data_tests:
+          - not_null
+
+      - name: total_customer_value
+        description: "Total value of the customer's purchase orders."
+        data_tests:
+          - not_null
+
+      - name: average_order_value
+        description: "Average order value for the customer."
+        data_tests:
+          - not_null

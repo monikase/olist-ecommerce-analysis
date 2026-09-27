@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: mart_customer_repeat_180d
+    description: >
+      Customer-level analytical dataset for studying whether a customer
+      makes a second purchase within 180 days of their first purchase.
+      Only customers with at least 180 days of observation time are included.
+
+    columns:
+
+      - name: customer_unique_id
+        description: "Persistent customer identifier."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: first_purchase_timestamp
+        description: "Timestamp of the customer's first purchase."
+        data_tests:
+          - not_null
+
+      - name: first_order_value
+        description: "Total value of the customer's first order, including freight."
+        data_tests:
+          - not_null
+
+      - name: first_order_items
+        description: "Number of items in the customer's first order."
+        data_tests:
+          - not_null
+
+      - name: returned_180d
+        description: "Whether the customer made a second purchase within 180 days."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+
+      - name: observation_days
+        description: "Number of days between the first purchase and dataset end."
+        data_tests:
+          - not_null

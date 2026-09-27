@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_order_payments
+    description: >
+      Payment-level staging model containing payment methods,
+      installments, and payment values associated with orders.
+    columns:
+      - name: order_id
+        description: "Identifier of the order."
+        data_tests:
+          - not_null
+
+      - name: payment_sequential
+        description: "Sequence number identifying multiple payments within an order."
+        data_tests:
+          - not_null
+
+      - name: payment_type
+        description: "Payment method used for the payment."
+        data_tests:
+          - not_null
+
+      - name: payment_installments
+        description: "Number of installments used for the payment."
+        data_tests:
+          - not_null
+
+      - name: payment_value
+        description: "Value of the payment."
+        data_tests:
+          - not_null

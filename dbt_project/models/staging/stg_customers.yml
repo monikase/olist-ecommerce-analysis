@@ -1,0 +1,31 @@
+version: 2
+
+models:
+
+  - name: stg_customers
+
+    description: >
+      Cleaned customer-level staging model based on the
+      raw Olist customer dataset.
+
+    columns:
+
+      - name: customer_id
+        description: "Identifier for the customer record associated with an order."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_unique_id
+        description: "Persistent customer identifier used to identify customers across orders."
+        data_tests:
+          - not_null
+
+      - name: customer_zip_code_prefix
+        description: "First five digits of the customer's ZIP code."
+
+      - name: customer_city
+        description: "Customer city."
+
+      - name: customer_state
+        description: "Customer state."

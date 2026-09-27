@@ -1,0 +1,17 @@
+version: 2
+
+models:
+
+  - name: stg_sellers
+
+    description: >
+      Seller-level staging model containing seller
+      location information.
+
+    columns:
+
+      - name: seller_id
+        description: "Unique identifier of the seller."
+        data_tests:
+          - not_null
+          - unique

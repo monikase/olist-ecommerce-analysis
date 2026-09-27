@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_order_reviews
+    description: >
+      Review-level staging model containing customer review scores,
+      comments, and review timestamps.
+    columns:
+      - name: review_id
+        description: "Identifier of the review."
+        data_tests:
+          - not_null
+
+      - name: order_id
+        description: "Identifier of the order associated with the review."
+        data_tests:
+          - not_null
+
+      - name: review_score
+        description: "Customer review score from 1 to 5."
+        data_tests:
+          - not_null
+
+      - name: review_creation_date
+        description: "Timestamp when the review was created."
+        data_tests:
+          - not_null

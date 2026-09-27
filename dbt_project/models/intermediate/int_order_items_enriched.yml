@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: int_order_items_enriched
+    description: >
+      Enriched order-item level model combining orders, customers,
+      products, categories, and sellers. The grain is one row per
+      item within an order.
+
+    columns:
+      - name: order_id
+        description: "Identifier of the order."
+        data_tests:
+          - not_null
+
+      - name: order_item_id
+        description: "Sequential item number within the order."
+        data_tests:
+          - not_null
+
+      - name: customer_unique_id
+        description: "Persistent customer identifier used across orders."
+        data_tests:
+          - not_null
+
+      - name: product_id
+        description: "Identifier of the purchased product."
+        data_tests:
+          - not_null
+
+      - name: seller_id
+        description: "Identifier of the seller."
+        data_tests:
+          - not_null
+
+      - name: price
+        description: "Price paid for the item."
+        data_tests:
+          - not_null
+
+      - name: freight_value
+        description: "Freight value associated with the item."
+        data_tests:
+          - not_null
